@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Hello Templates!</h1>
-</body>
-</html>
+{% extends "dashboard-base.html" %} 
+
+{% block dashboard %}
+<h1>Main Page Dashboard</h1>
+
+{% comment %} {% for hobby in hobbies %} 
+{% include "components/hobby-card.html" with hobby=hobby %} 
+{% endfor %} {% endcomment %}
+
+<div class="flex flex-wrap gap-2 my-2">
+  {% for note in notes %}
+    {% include "components/note-card.html" with note=note %}
+  {% endfor %}
+</div>
+
+<div class="myClass">Test</div>
+{% endblock %} 
